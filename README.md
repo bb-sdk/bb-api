@@ -2,7 +2,7 @@
 
 > TypeScript client library for [bitbank.cc](https://bitbank.cc) — REST API, public WebSocket, and private stream, all type-safe.
 
-[![npm](https://img.shields.io/npm/v/@bb/api)](https://www.npmjs.com/package/@bb/api)
+[![npm](https://img.shields.io/npm/v/@pokooo/bb-api)](https://www.npmjs.com/package/@pokooo/bb-api)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![pnpm](https://img.shields.io/badge/packageManager-pnpm-orange)](https://pnpm.io)
 
@@ -24,9 +24,9 @@
 ## Installation
 
 ```bash
-pnpm add @bb/api
-# npm install @bb/api
-# yarn add @bb/api
+pnpm add @pokooo/bb-api
+# npm install @pokooo/bb-api
+# yarn add @pokooo/bb-api
 ```
 
 **Requirements:** Node.js (uses Web Crypto API for signing).
@@ -38,7 +38,7 @@ pnpm add @bb/api
 ### Public REST (no auth)
 
 ```typescript
-import { PublicRestClient, PAIR } from '@bb/api';
+import { PublicRestClient, PAIR } from '@pokooo/bb-api';
 
 const client = new PublicRestClient();
 
@@ -50,7 +50,7 @@ const tickers = await client.getTickersJpy();
 ### Authenticated REST
 
 ```typescript
-import { RestClient, PAIR, ORDER_TYPE, ORDER_SIDE } from '@bb/api';
+import { RestClient, PAIR, ORDER_TYPE, ORDER_SIDE } from '@pokooo/bb-api';
 
 const client = new RestClient({
   key: process.env.BITBANK_API_KEY!,
@@ -71,7 +71,7 @@ const order = await client.submitOrder({
 ### Public WebSocket
 
 ```typescript
-import { PublicStreamClient, PAIR } from '@bb/api';
+import { PublicStreamClient, PAIR } from '@pokooo/bb-api';
 
 const stream = new PublicStreamClient();
 
@@ -89,7 +89,7 @@ stream.on('transactions', (roomName, data) => console.log(roomName, data));
 ### Private Stream
 
 ```typescript
-import { RestClient, PrivateStreamClient } from '@bb/api';
+import { RestClient, PrivateStreamClient } from '@pokooo/bb-api';
 
 const restClient = new RestClient({
   key:    process.env.BITBANK_API_KEY!,
@@ -127,8 +127,8 @@ await stream.connect();
 ## Types & Constants
 
 ```typescript
-import type { BitbankApiResponse, PairString } from '@bb/api';
-import { PAIR, ORDER_TYPE, ORDER_SIDE, CANDLE_TYPE } from '@bb/api';
+import type { BitbankApiResponse, PairString } from '@pokooo/bb-api';
+import { PAIR, ORDER_TYPE, ORDER_SIDE, CANDLE_TYPE } from '@pokooo/bb-api';
 ```
 
 **Types:** `BitbankApiResponse<T>`, `PairString`, `OrderFields`, request/response/WebSocket message types for orders, deposits, withdrawals, margin, and more.
@@ -140,7 +140,7 @@ import { PAIR, ORDER_TYPE, ORDER_SIDE, CANDLE_TYPE } from '@bb/api';
 ## Logger
 
 ```typescript
-import { setLogger } from '@bb/api';
+import { setLogger } from '@pokooo/bb-api';
 
 setLogger({
   error: (...args) => console.error('[bitbank]', ...args),
