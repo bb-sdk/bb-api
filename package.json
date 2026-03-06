@@ -1,0 +1,45 @@
+{
+  "name": "@bb-api",
+  "version": "1.0.0",
+  "description": "TypeScript library for the Bitbank cryptocurrency exchange API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format --write .",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm run version && pnpm run build"
+  },
+  "keywords": [
+    "bitbank",
+    "crypto",
+    "api",
+    "typescript"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "packageManager": "pnpm@10.29.3",
+  "dependencies": {
+    "axios": "^1.7.0",
+    "pubnub": "^8.0.0",
+    "socket.io-client": "^4.7.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.6",
+    "@changesets/cli": "^2.30.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0"
+  }
+}

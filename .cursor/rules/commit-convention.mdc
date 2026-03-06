@@ -1,0 +1,61 @@
+---
+description: Commit message convention for this project. Apply when writing or reviewing git commit messages.
+alwaysApply: true
+---
+
+# Commit Message Convention
+
+Follow **Conventional Commits**.
+
+## Format
+
+```
+<type>(<scope>): <description>
+
+[body]
+
+[footer]
+```
+
+## Types
+
+| Type | Use for |
+|------|---------|
+| `feat` | New feature or capability |
+| `fix` | Bug fix |
+| `refactor` | Code change that is neither a fix nor a feature |
+| `perf` | Performance improvement |
+| `docs` | Documentation only |
+| `test` | Adding or fixing tests |
+| `chore` | Build, deps, config — no production code change |
+| `style` | Formatting, whitespace (no logic change) |
+| `ci` | CI/CD configuration |
+| `revert` | Reverting a previous commit |
+
+## Rules
+
+- **Language**: English
+- **Mood**: Imperative — "add", not "added" / "adds"
+- **Subject line**: lowercase, no trailing period, ≤ 72 characters
+- **Scope**: optional; use the affected module or file area (e.g. `rest-client`, `types`, `build`)
+- **Body**: explain *why*, not *what*; wrap at 72 characters
+- **Breaking changes**: add `!` after type/scope and a `BREAKING CHANGE:` footer
+
+## Examples
+
+```
+feat(rest-client): add getMarginPositions method
+
+fix(types): correct OrderStatus union to include cancelled
+
+refactor(public-stream): extract joinRoom helper
+
+chore(deps): upgrade axios to 1.8
+
+docs: update README with authenticated REST examples
+
+feat(auth)!: replace nonce signing with time-window by default
+
+BREAKING CHANGE: authMethod now defaults to 'time-window'.
+Callers using nonce signing must explicitly set authMethod: 'nonce'.
+```
