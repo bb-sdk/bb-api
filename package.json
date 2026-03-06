@@ -1,7 +1,13 @@
 {
-  "name": "@bb/api",
+  "name": "@pokooo/bb-api",
   "version": "1.0.0",
   "description": "TypeScript library for the Bitbank cryptocurrency exchange API",
+  "author": "pokooo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pokooo/bitbank-api.git"
+  },
+  "homepage": "https://github.com/pokooo/bitbank-api#readme",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
