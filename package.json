@@ -1,5 +1,5 @@
 {
-  "name": "@bb-api",
+  "name": "@bb/api",
   "version": "1.0.0",
   "description": "TypeScript library for the Bitbank cryptocurrency exchange API",
   "main": "dist/index.js",

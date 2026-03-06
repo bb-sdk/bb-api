@@ -2,7 +2,7 @@
 
 > TypeScript client library for [bitbank.cc](https://bitbank.cc) — REST API, public WebSocket, and private stream, all type-safe.
 
-[![npm](https://img.shields.io/npm/v/bitbank-api)](https://www.npmjs.com/package/bitbank-api)
+[![npm](https://img.shields.io/npm/v/@bb/api)](https://www.npmjs.com/package/@bb/api)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![pnpm](https://img.shields.io/badge/packageManager-pnpm-orange)](https://pnpm.io)
 
@@ -24,9 +24,9 @@
 ## Installation
 
 ```bash
-pnpm add bitbank-api
-# npm install bitbank-api
-# yarn add bitbank-api
+pnpm add @bb/api
+# npm install @bb/api
+# yarn add @bb/api
 ```
 
 **Requirements:** Node.js (uses Web Crypto API for signing).
@@ -38,7 +38,7 @@ pnpm add bitbank-api
 ### Public REST (no auth)
 
 ```typescript
-import { PublicRestClient, PAIR } from 'bitbank-api';
+import { PublicRestClient, PAIR } from '@bb/api';
 
 const client = new PublicRestClient();
 
@@ -50,7 +50,7 @@ const tickers = await client.getTickersJpy();
 ### Authenticated REST
 
 ```typescript
-import { RestClient, PAIR, ORDER_TYPE, ORDER_SIDE } from 'bitbank-api';
+import { RestClient, PAIR, ORDER_TYPE, ORDER_SIDE } from '@bb/api';
 
 const client = new RestClient({
   key: process.env.BITBANK_API_KEY!,
@@ -71,7 +71,7 @@ const order = await client.submitOrder({
 ### Public WebSocket
 
 ```typescript
-import { PublicStreamClient, PAIR } from 'bitbank-api';
+import { PublicStreamClient, PAIR } from '@bb/api';
 
 const stream = new PublicStreamClient();
 
@@ -89,7 +89,7 @@ stream.on('transactions', (roomName, data) => console.log(roomName, data));
 ### Private Stream
 
 ```typescript
-import { RestClient, PrivateStreamClient } from 'bitbank-api';
+import { RestClient, PrivateStreamClient } from '@bb/api';
 
 const restClient = new RestClient({
   key:    process.env.BITBANK_API_KEY!,
@@ -127,8 +127,8 @@ await stream.connect();
 ## Types & Constants
 
 ```typescript
-import type { BitbankApiResponse, PairString } from 'bitbank-api';
-import { PAIR, ORDER_TYPE, ORDER_SIDE, CANDLE_TYPE } from 'bitbank-api';
+import type { BitbankApiResponse, PairString } from '@bb/api';
+import { PAIR, ORDER_TYPE, ORDER_SIDE, CANDLE_TYPE } from '@bb/api';
 ```
 
 **Types:** `BitbankApiResponse<T>`, `PairString`, `OrderFields`, request/response/WebSocket message types for orders, deposits, withdrawals, margin, and more.
@@ -140,7 +140,7 @@ import { PAIR, ORDER_TYPE, ORDER_SIDE, CANDLE_TYPE } from 'bitbank-api';
 ## Logger
 
 ```typescript
-import { setLogger } from 'bitbank-api';
+import { setLogger } from '@bb/api';
 
 setLogger({
   error: (...args) => console.error('[bitbank]', ...args),
@@ -170,7 +170,7 @@ pnpm check:fix   # Auto-fix
 1. **変更を記録**: `pnpm changeset` でバージョン種別（patch / minor / major）と説明を入力
 2. **バージョン確定**: `pnpm run version` で `package.json` と `CHANGELOG.md` を更新
 3. **ビルド**: `pnpm run build`
-4. **公開**: `pnpm publish`（スコープ付き `@bb-api` の初回は `pnpm publish --access public`）
+4. **公開**: `pnpm publish`（`publishConfig.access: "public"` 済みのためそのままで可）
 
 一括でバージョン更新とビルドまで行う場合は `pnpm run release` を実行してください。
 
