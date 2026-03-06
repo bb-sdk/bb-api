@@ -24,6 +24,9 @@
     "typescript"
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist",
     "README.md",
